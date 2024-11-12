@@ -1,6 +1,6 @@
 /* Imagem de fundo padrão (para desktops e tablets) */
 body {
-    background-image: url('img/background-pergunta1.png');
+    background-image: url('img/background-pergunta.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
