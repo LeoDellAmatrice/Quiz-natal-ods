@@ -3,31 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site com Imagem de Fundo Responsiva</title>
+    <title>Quiz ODS - EcoTec</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="total">
         <div class="radio-input">
             <div class="info">
-                <span class="question">O ODS 10 (Redução das Desigualdades) busca:</span>
-                <span class="steps">1/5</span>
+                <span id="question" class="question"></span>
+                <span id="steps" class="steps"></span>
             </div>
-            <input type="radio" id="value-1" name="value-radio" value="value-1">
-            <label for="value-1">Reduzir desigualdades econômicas apenas dentro dos países</label>
+            <input type="radio" id="optionA" name="value-radio" value="A">
+            <label for="optionA" id="labelA"></label>
 
-            <input type="radio" id="value-2" name="value-radio" value="value-2">
-            <label for="value-2">Promover igualdade de renda entre todos os países</label>
+            <input type="radio" id="optionB" name="value-radio" value="B">
+            <label for="optionB" id="labelB"></label>
 
-            <input type="radio" id="value-3" name="value-radio" value="value-3">
-            <label for="value-3">Reduzir as desigualdades dentro e entre os países</label>
+            <input type="radio" id="optionC" name="value-radio" value="C">
+            <label for="optionC" id="labelC"></label>
 
-            <input type="radio" id="value-4" name="value-radio" value="value-4">
-            <label for="value-4">Garantir educação de qualidade para todos</label>
+            <input type="radio" id="optionD" name="value-radio" value="D">
+            <label for="optionD" id="labelD"></label>
 
-            <span class="result success">Parabéns, você acertou!</span>
-            <span class="result error">Resposta incorreta.</span>
+            <span id="result" class="result"></span>
         </div>
     </div>
+
+    <script>
+        const perguntas = [
+            { pergunta: "Uma das metas do ODS 13 é integrar medidas de mudança climática nas políticas nacionais.", respostaCorreta: "Verdadeiro" },
+            { pergunta: "O ODS 10 busca reduzir as desigualdades dentro e entre os países.", respostaCorreta: "C", opcoes: ["A", "B", "C", "D"] },
+            { pergunta: "ODS 7 não se preocupa com a eficiência energética.", respostaCorreta: "Falso" },
+            { pergunta: "ODS 15 visa combater a degradação da terra e perda de biodiversidade.", respostaCorreta: "B", opcoes: ["A", "B", "C", "D"] },
+            // Adicione todas as perguntas da lista aqui, com as alternativas
+        ];
+
+        // Seleciona elementos HTML
+        const questionEl = document.getElementById('question');
+        const stepsEl = document.getElementById('steps');
+        const resultEl = document.getElementById('result');
+        const radioButtons = document.querySelectorAll('input[name="value-radio"]');
+        const labels = {
+            A: document.getElementById('labelA'),
+            B: document.getElementById('labelB'),
+            C: document.getElementById('labelC'),
+            D: document.getElementById('labelD')
+        };
+
+        // Sorteio e variáveis do quiz
+        const perguntasSorteadas = [];
+        let perguntaAtual = 0;
+
+        function sortearPerguntas() {
+            while (perguntasSorteadas.length < 5) {
+                const index = Math.floor(Math.random() * perguntas.length);
+                if (!perguntasSorteadas.includes(index)) {
+                    perguntasSorteadas.push(perguntas[index]);
+                }
+            }
+        }
+
+        // Exibe a pergunta
+        function exibirPergunta() {
+            const pergunta = perguntasSorteadas[perguntaAtual];
+            questionEl.textContent = pergunta.pergunta;
+            stepsEl.textContent = `${perguntaAtual + 1}/5`;
+            resultEl.style.display = "none";
+
+            if (pergunta.opcoes) {
+                // Exibe alternativas caso a pergunta tenha opções
+                radioButtons.forEach(radio => radio.style.display = "inline");
+                labels.A.textContent = "Reduzir desigualdades econômicas apenas dentro dos países";
+                labels.B.textContent = "Promover igualdade de renda entre todos os países";
+                labels.C.textContent = "Reduzir as desigualdades dentro e entre os países";
+                labels.D.textContent = "Garantir educação de qualidade para todos";
+            } else {
+                // Caso seja verdadeiro ou falso, esconde opções extras
+                radioButtons.forEach(radio => radio.style.display = "none");
+            }
+        }
+
+        // Verifica a resposta e avança para a próxima pergunta
+        function verificarResposta() {
+            const respostaSelecionada = document.querySelector('input[name="value-radio"]:checked');
+            const pergunta = perguntasSorteadas[perguntaAtual];
+
+            if (respostaSelecionada && respostaSelecionada.value === pergunta.respostaCorreta) {
+                resultEl.textContent = "Resposta correta!";
+                resultEl.className = "result success";
+                perguntaAtual++;
+            } else {
+                resultEl.textContent = "Resposta incorreta.";
+                resultEl.className = "result error";
+            }
+
+            resultEl.style.display = "block";
+
+            if (perguntaAtual < perguntasSorteadas.length) {
+                setTimeout(() => {
+                    exibirPergunta();
+                }, 2000);
+            } else {
+                setTimeout(() => {
+                    questionEl.textContent = "Parabéns! Você concluiu todas as perguntas.";
+                    stepsEl.textContent = "";
+                }, 2000);
+            }
+        }
+
+        // Inicializa o quiz
+        sortearPerguntas();
+        exibirPergunta();
+
+        // Adiciona evento para verificar a resposta
+        radioButtons.forEach(radio => {
+            radio.addEventListener('click', verificarResposta);
+        });
+    </script>
 </body>
 </html>
