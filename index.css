@@ -3,14 +3,9 @@
   padding: 0;
 }
 
-body {
-  height: 100dvh;
-}
-
 .background {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  height: 100dvh;
   background-image: url("img/background-inicio.png");
   background-position: center center;
   background-size: cover;
