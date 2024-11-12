@@ -1,13 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 
 .background {
   position: absolute;
   width: 100%;
-  height: 100dvh; !important;
+  height: 100dvh !important;
   background-image: url("img/background-inicio.png");
   background-position: center center;
   background-size: cover;
