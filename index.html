@@ -70,6 +70,9 @@
             stepsEl.textContent = `${perguntaAtual + 1}/5`;
             resultEl.style.display = "none";
 
+            // Desmarca todos os radio buttons
+            radioButtons.forEach(radio => radio.checked = false);
+
             if (pergunta.opcoes) {
                 // Exibe alternativas caso a pergunta tenha opções
                 radioButtons.forEach(radio => radio.style.display = "inline");
