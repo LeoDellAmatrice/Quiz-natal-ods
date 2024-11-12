@@ -8,14 +8,24 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Estilos para o conteúdo */
-.conteudo {
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+.total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+
+
+
+
+
 
 /* Estilo para os inputs de rádio */
 .radio-input input {
