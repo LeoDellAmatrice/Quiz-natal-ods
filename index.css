@@ -4,14 +4,35 @@
 }
 
 body {
-  height: 100lh;
+  height: 100vh;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-image: url("img/background-inicio.png");
   background-size: cover;
+}
+
+.background:hover {
+  background-image: url("img/background-pergunta1.png");
+  z-index: -1000;
 }
 
 main {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.total {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
