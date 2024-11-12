@@ -4,6 +4,7 @@
 }
 
 body {
+  height: 100lh;
   background-image: url("img/background-inicio.png");
   background-size: cover;
 }
