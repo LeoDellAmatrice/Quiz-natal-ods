@@ -3,9 +3,11 @@
   padding: 0;
 }
 
+
 .background {
   position: absolute;
-  height: 100dvh;
+  width: 100%;
+  height: 100dvh; !important;
   background-image: url("img/background-inicio.png");
   background-position: center center;
   background-size: cover;
