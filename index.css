@@ -97,6 +97,10 @@ body {
     color: green;
 }
 
+#result {
+    display: none;
+}
+
 .result.error {
     color: red;
 }
