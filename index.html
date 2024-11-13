@@ -13,132 +13,24 @@
                 <span id="question" class="question"></span>
                 <span id="steps" class="steps"></span>
             </div>
+
             <input type="radio" id="optionA" name="value-radio" value="A">
             <label for="optionA" id="labelA"></label>
 
             <input type="radio" id="optionB" name="value-radio" value="B">
             <label for="optionB" id="labelB"></label>
 
-            <input type="radio" id="optionC" name="value-radio" value="C" style="display: none;">
-            <label for="optionC" id="labelC" style="display: none;"></label>
+            <input type="radio" id="optionC" name="value-radio" value="C">
+            <label for="optionC" id="labelC"></label>
 
-            <input type="radio" id="optionD" name="value-radio" value="D" style="display: none;">
-            <label for="optionD" id="labelD" style="display: none;"></label>
+            <input type="radio" id="optionD" name="value-radio" value="D">
+            <label for="optionD" id="labelD"></label>
 
             <span id="result" class="result"></span>
             <button id="next-button" onclick="irParaProximaPergunta()" style="display: none;">Próximo</button>
         </div>
     </div>
 
-    <script>
-        const perguntas = [
-            { pergunta: "Uma das metas do ODS 13 é integrar medidas de mudança climática nas políticas nacionais.", respostaCorreta: "Verdadeiro", opcoes: ["Verdadeiro", "Falso"] },
-            { pergunta: "O ODS 10 busca reduzir as desigualdades dentro e entre os países.", respostaCorreta: "C", opcoes: ["A", "B", "C", "D"] },
-            { pergunta: "ODS 7 não se preocupa com a eficiência energética.", respostaCorreta: "Falso", opcoes: ["Verdadeiro", "Falso"] },
-            { pergunta: "ODS 15 visa combater a degradação da terra e perda de biodiversidade.", respostaCorreta: "B", opcoes: ["A", "B", "C", "D"] },
-        ];
-
-        const questionEl = document.getElementById('question');
-        const stepsEl = document.getElementById('steps');
-        const resultEl = document.getElementById('result');
-        const radioButtons = document.querySelectorAll('input[name="value-radio"]');
-        const labels = {
-            A: document.getElementById('labelA'),
-            B: document.getElementById('labelB'),
-            C: document.getElementById('labelC'),
-            D: document.getElementById('labelD')
-        };
-        const nextButton = document.getElementById('next-button');
-
-        const perguntasSorteadas = [];
-        let perguntaAtual = 0;
-
-        // Sorteia perguntas
-        function sortearPerguntas() {
-            while (perguntasSorteadas.length < 5) {
-                const index = Math.floor(Math.random() * perguntas.length);
-                if (!perguntasSorteadas.includes(index)) {
-                    perguntasSorteadas.push(perguntas[index]);
-                }
-            }
-        }
-
-        // Exibe a pergunta atual e prepara a interface
-        function exibirPergunta() {
-            const pergunta = perguntasSorteadas[perguntaAtual];
-            questionEl.textContent = pergunta.pergunta;
-            stepsEl.textContent = `${perguntaAtual + 1}/5`;
-            resultEl.style.display = "none";
-            nextButton.style.display = "none";
-            desbloquearRespostas();
-
-            // Configura as opções de resposta
-            if (pergunta.opcoes.length === 2) {
-                radioButtons.forEach((radio, i) => {
-                    radio.style.display = i < 2 ? "inline" : "none";
-                });
-                labels.A.textContent = "Verdadeiro";
-                labels.B.textContent = "Falso";
-                labels.C.style.display = "none";
-                labels.D.style.display = "none";
-            } else {
-                radioButtons.forEach(radio => radio.style.display = "inline");
-                labels.A.textContent = "Reduzir desigualdades econômicas apenas dentro dos países";
-                labels.B.textContent = "Promover igualdade de renda entre todos os países";
-                labels.C.textContent = "Reduzir as desigualdades dentro e entre os países";
-                labels.D.textContent = "Garantir educação de qualidade para todos";
-                labels.C.style.display = "inline";
-                labels.D.style.display = "inline";
-            }
-        }
-
-        // Verifica a resposta do usuário
-        function verificarResposta() {
-            const respostaSelecionada = document.querySelector('input[name="value-radio"]:checked');
-            const pergunta = perguntasSorteadas[perguntaAtual];
-
-            if (respostaSelecionada) {
-                if (respostaSelecionada.value === pergunta.respostaCorreta) {
-                    resultEl.textContent = "Resposta correta!";
-                    resultEl.className = "result success";
-                } else {
-                    resultEl.textContent = "Resposta incorreta.";
-                    resultEl.className = "result error";
-                }
-                bloquearRespostas(); // Bloqueia as opções
-                nextButton.style.display = "inline"; // Mostra o botão de próxima
-            }
-        }
-
-        // Bloqueia as opções após a resposta
-        function bloquearRespostas() {
-            radioButtons.forEach(radio => radio.disabled = true);
-        }
-
-        // Desbloqueia as opções para a próxima pergunta
-        function desbloquearRespostas() {
-            radioButtons.forEach(radio => {
-                radio.checked = false;
-                radio.disabled = false;
-            });
-        }
-
-        // Avança para a próxima pergunta ou finaliza o quiz
-        function irParaProximaPergunta() {
-            perguntaAtual++;
-            if (perguntaAtual < perguntasSorteadas.length) {
-                exibirPergunta();
-            } else {
-                questionEl.textContent = "Parabéns! Você concluiu todas as perguntas.";
-                stepsEl.textContent = "";
-                nextButton.style.display = "none";
-            }
-        }
-
-        // Inicializa o quiz e adiciona eventos
-        sortearPerguntas();
-        exibirPergunta();
-        radioButtons.forEach(radio => radio.addEventListener('change', verificarResposta));
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>

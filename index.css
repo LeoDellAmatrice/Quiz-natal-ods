@@ -1,4 +1,4 @@
-/* Imagem de fundo padrão (para desktops e tablets) */
+/* Imagem de fundo padrão */
 body {
     background-image: url('img/background-pergunta.png');
     background-size: cover;
@@ -21,7 +21,6 @@ body {
     align-items: center;
 }
 
-/* Estilo para os inputs de rádio */
 .radio-input input {
     display: none;
 }
@@ -91,26 +90,15 @@ body {
     color: green;
 }
 
-#result {
-    display: none;
-}
-
 .result.error {
     color: red;
 }
 
 .radio-input input:checked + label {
-    border-color: #ff6961;
-    color: #ff6961;
-    font-weight: bold;
+    border-color: #4CAF50; /* Verde para respostas corretas */
+    color: #4CAF50; /* Verde para texto correto */
 }
 
-.radio-input input[value="value-3"]:checked + label {
-    border-color: #4CAF50;
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-.font-sans {
-    font-family: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji" !important;
+#next-button {
+    margin-top: 10px;
 }
