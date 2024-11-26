@@ -198,7 +198,7 @@ function embaralharPerguntas() {
 function exibirPergunta() {
     const pergunta = perguntasDisponiveis[indicePerguntaAtual];
     document.getElementById('question').textContent = pergunta.pergunta;
-    document.getElementById('steps').textContent = `${indicePerguntaAtual + 1} de ${perguntasDisponiveis.length}`;
+    document.getElementById('steps').textContent = `${indicePerguntaAtual + 1} de ${4}`;
 
     // Exibir as opções de resposta
     const opcoes = pergunta.opcoes;
@@ -219,7 +219,10 @@ function verificarResposta() {
     const pergunta = perguntasDisponiveis[indicePerguntaAtual];
     const respostaSelecionada = document.querySelector('input[name="value-radio"]:checked')?.value;
 
-    if (!respostaSelecionada) return;
+    if (!respostaSelecionada){
+        return;
+    }
+
 
     // Verifica se a resposta está correta
     const correto = respostaSelecionada === pergunta.respostaCorreta;
@@ -240,10 +243,10 @@ function verificarResposta() {
 // Função para ir para a próxima pergunta
 function irParaProximaPergunta() {
     indicePerguntaAtual++;
-    if (indicePerguntaAtual < perguntasDisponiveis.length) {
+    if (indicePerguntaAtual < 4) {
         exibirPergunta();
     } else {
-        document.querySelector('.total').innerHTML = `<h2>Você acertou ${respostasCorretas} de ${perguntasDisponiveis.length} perguntas!</h2>`;
+        document.querySelector('.total').innerHTML = `<h2>Você acertou ${respostasCorretas} de ${4} perguntas!</h2>`;
     }
 }
 
