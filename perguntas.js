@@ -243,23 +243,27 @@ function verificarResposta() {
         const correto = respostaSelecionada === pergunta.respostaCorreta;
         if (correto) {
             respostasCorretas++;
-            document.getElementById('result').textContent = 'Resposta Correta!';
             document.querySelector(`label[for="option${respostaSelecionada}"]`).style.backgroundColor = 'green';
             console.log(indicePerguntaAtual)
 
             if (indicePerguntaAtual === 0){
                 acertou(`natalecotec/ligar/faixa/blue`)
                 console.log("azul")
-            } else if (indicePerguntaAtual === 1){
+            }
+            if (indicePerguntaAtual === 1){
                 acertou(`natalecotec/ligar/faixa/red`)
                 console.log("vermelho")
-            } else if (indicePerguntaAtual === 2){
+            }
+            if (indicePerguntaAtual === 2){
                 acertou(`natalecotec/ligar/faixa/green`)
                 console.log("verde")
-            } else if (indicePerguntaAtual === 3){} {
+            }
+            if (indicePerguntaAtual === 3){
                 acertou(`natalecotec/ligar/faixa/yellow`)
                 console.log("amarelo")
             }
+
+            console.log(indicePerguntaAtual)
         } else {
             document.getElementById('result').textContent = 'Resposta Errada!';
             document.querySelector(`label[for="option${respostaSelecionada}"]`).style.backgroundColor = 'red';
