@@ -188,6 +188,7 @@ const perguntas = [
 let perguntasDisponiveis = [...perguntas];
 let indicePerguntaAtual = 0;
 let respostasCorretas = 0;
+let clicou = false;
 
 // Função para embaralhar perguntas
 function embaralharPerguntas() {
@@ -196,6 +197,7 @@ function embaralharPerguntas() {
 
 // Exibir a próxima pergunta
 function exibirPergunta() {
+    clicou = false;
     const pergunta = perguntasDisponiveis[indicePerguntaAtual];
     document.getElementById('question').textContent = pergunta.pergunta;
     document.getElementById('steps').textContent = `${indicePerguntaAtual + 1} de ${4}`;
@@ -223,28 +225,35 @@ function exibirPergunta() {
 
 // Função para verificar a resposta
 function verificarResposta() {
-    const pergunta = perguntasDisponiveis[indicePerguntaAtual];
-    const respostaSelecionada = document.querySelector('input[name="value-radio"]:checked')?.value;
 
-    if (!respostaSelecionada){
-        return;
-    }
+    if (clicou !== false) {
 
-
-    // Verifica se a resposta está correta
-    const correto = respostaSelecionada === pergunta.respostaCorreta;
-    if (correto) {
-        respostasCorretas++;
-        document.getElementById('result').textContent = 'Resposta Correta!';
-        document.querySelector(`label[for="option${respostaSelecionada}"]`).style.backgroundColor = 'green';
     } else {
-        document.getElementById('result').textContent = 'Resposta Errada!';
-        document.querySelector(`label[for="option${respostaSelecionada}"]`).style.backgroundColor = 'red';
-        document.querySelector(`label[for="option${pergunta.respostaCorreta}"]`).style.backgroundColor = 'green';
-    }
 
-    // Mostrar o botão para ir para a próxima pergunta
-    document.getElementById('next-button').style.display = 'inline-block';
+        clicou = true;
+        const pergunta = perguntasDisponiveis[indicePerguntaAtual];
+        const respostaSelecionada = document.querySelector('input[name="value-radio"]:checked')?.value;
+
+        if (!respostaSelecionada) {
+            return;
+        }
+
+
+        // Verifica se a resposta está correta
+        const correto = respostaSelecionada === pergunta.respostaCorreta;
+        if (correto) {
+            respostasCorretas++;
+            document.getElementById('result').textContent = 'Resposta Correta!';
+            document.querySelector(`label[for="option${respostaSelecionada}"]`).style.backgroundColor = 'green';
+        } else {
+            document.getElementById('result').textContent = 'Resposta Errada!';
+            document.querySelector(`label[for="option${respostaSelecionada}"]`).style.backgroundColor = 'red';
+            document.querySelector(`label[for="option${pergunta.respostaCorreta}"]`).style.backgroundColor = 'green';
+        }
+
+        // Mostrar o botão para ir para a próxima pergunta
+        document.getElementById('next-button').style.display = 'inline-block';
+    }
 }
 
 // Função para ir para a próxima pergunta
@@ -253,7 +262,7 @@ function irParaProximaPergunta() {
     if (indicePerguntaAtual < 4) {
         exibirPergunta();
     } else {
-        document.querySelector('.total').innerHTML = `<h2>Você acertou ${respostasCorretas} de ${4} perguntas!</h2>`;
+        document.querySelector('.total').innerHTML = `<h2 class="titulo-final">Você acertou ${respostasCorretas} de ${4} perguntas!</h2>`;
     }
 }
 

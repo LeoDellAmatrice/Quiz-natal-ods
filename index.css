@@ -38,6 +38,8 @@ body {
 .info {
     margin-bottom: 10px;
     display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
 }
@@ -73,11 +75,6 @@ body {
     transition: .3s ease;
 }
 
-.radio-input label:hover {
-    background-color: rgba(24, 24, 24, 0.13);
-    border: 1px solid #bbb;
-}
-
 .result {
     margin-top: 10px;
     font-weight: 600;
@@ -94,18 +91,14 @@ body {
     color: red;
 }
 
-.radio-input input:checked + label {
-    border-color: #4CAF50; /* Verde para respostas corretas */
-    color: #4CAF50; /* Verde para texto correto */
-}
-
 #next-button {
+    margin-top: 10px;
     background-color: #e63946; /* Vermelho natalino */
     color: #fff; /* Cor do texto */
     font-size: 1.2rem; /* Tamanho do texto */
     padding: 10px 20px; /* Espaçamento interno */
     border: none; /* Sem borda padrão */
-    border-radius: 50px; /* Bordas arredondadas */
+    border-radius: 10px; /* Bordas arredondadas */
     cursor: pointer; /* Muda o cursor ao passar o mouse */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
     transition: all 0.3s ease; /* Animação suave */
@@ -120,4 +113,18 @@ body {
 #next-button:active {
     transform: scale(0.95); /* Botão "afunda" ao clicar */
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Sombra menor */
+}
+
+.titulo-final {
+    font-size: 2rem; /* Tamanho do texto */
+    color: #2a9d8f; /* Verde natalino */
+    text-align: center; /* Centraliza o texto */
+    background-color: #fefae0; /* Fundo claro, como neve */
+    padding: 15px 20px; /* Espaçamento interno */
+    border: 2px solid #e63946; /* Borda vermelha natalina */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    margin: 20px auto; /* Espaçamento externo */
+    width: fit-content; /* Adapta o tamanho ao texto */
+    animation: fade-in 1s ease-out; /* Animação de aparição */
 }
