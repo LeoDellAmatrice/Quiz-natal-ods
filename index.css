@@ -100,5 +100,24 @@ body {
 }
 
 #next-button {
-    margin-top: 10px;
+    background-color: #e63946; /* Vermelho natalino */
+    color: #fff; /* Cor do texto */
+    font-size: 1.2rem; /* Tamanho do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Sem borda padrão */
+    border-radius: 50px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
+    transition: all 0.3s ease; /* Animação suave */
+}
+
+#next-button:hover {
+    background-color: #f77f00; /* Tom alaranjado ao passar o mouse */
+    transform: scale(1.1); /* Aumenta um pouco o botão */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+
+#next-button:active {
+    transform: scale(0.95); /* Botão "afunda" ao clicar */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Sombra menor */
 }
