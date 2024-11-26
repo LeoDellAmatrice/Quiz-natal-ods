@@ -206,6 +206,13 @@ function exibirPergunta() {
     document.getElementById('labelB').textContent = opcoes[1];
     document.getElementById('labelC').textContent = opcoes[2] || '';
     document.getElementById('labelD').textContent = opcoes[3] || '';
+    if (opcoes[2] === undefined){
+        document.getElementById('labelC').style.display = 'none';
+        document.getElementById('labelD').style.display = 'none';
+    } else {
+        document.getElementById('labelC').style.display = 'block';
+        document.getElementById('labelD').style.display = 'block';
+    }
 
     // Resetar os radio buttons e estilos
     document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
