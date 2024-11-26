@@ -3,40 +3,42 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100vh; /* Altura total da tela */
     margin: 0;
     font-family: Arial, sans-serif;
     color: #fff;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: flex-start; /* Alinha verticalmente no início */
+    position: relative; /* Define o contexto de posicionamento */
 }
 
 .botao {
-    margin-top: 110%;
+    position: absolute; /* Posicionamento absoluto dentro do `body` */
+    top: 75%; /* Alinha a 75% da altura da tela */
+    transform: translateY(-50%); /* Ajusta para centralizar melhor */
+}
 
-    & button {
-        background: linear-gradient(135deg, #e63946, #f77f00); /* Gradiente natalino */
-        color: #fff; /* Cor do texto */
-        font-size: 1.5rem; /* Tamanho do texto */
-        font-weight: bold; /* Texto em negrito */
-        padding: 15px 30px; /* Espaçamento interno */
-        border: none; /* Sem borda padrão */
-        border-radius: 25px; /* Bordas arredondadas */
-        cursor: pointer; /* Cursor ao passar o mouse */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
-        transition: all 0.3s ease; /* Animação de hover */
-    }
+.botao button {
+    background: linear-gradient(135deg, #e63946, #f77f00); /* Gradiente natalino */
+    color: #fff; /* Cor do texto */
+    font-size: 1.5rem; /* Tamanho do texto */
+    font-weight: bold; /* Texto em negrito */
+    padding: 15px 30px; /* Espaçamento interno */
+    border: none; /* Sem borda padrão */
+    border-radius: 25px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor ao passar o mouse */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    transition: all 0.3s ease; /* Animação de hover */
 }
 
 .botao button:hover {
-  background: linear-gradient(135deg, #fcbf49, #f77f00); /* Mudança de cor no hover */
-  transform: scale(1.1); /* Aumenta o botão */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
+    background: linear-gradient(135deg, #fcbf49, #f77f00); /* Mudança de cor no hover */
+    transform: scale(1.1); /* Aumenta o botão */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
 }
 
 .botao button:active {
-  transform: scale(0.95); /* Botão "afunda" ao clicar */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+    transform: scale(0.95); /* Botão "afunda" ao clicar */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
 }
