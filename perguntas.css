@@ -1,0 +1,131 @@
+/* Imagem de fundo padrão */
+body {
+    background-image: url('img/background-pergunta.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-input input {
+    display: none;
+}
+
+.radio-input {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    width: 320px;
+}
+
+.info {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question {
+    color: rgb(49, 49, 49);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 800;
+}
+
+.steps {
+    background-color: rgb(0, 0, 0);
+    padding: 4px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 600;
+}
+
+.radio-input label {
+    display: flex;
+    background-color: #fff;
+    padding: 14px;
+    margin: 8px 0 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(187, 187, 187, 0.164);
+    color: #000;
+    transition: .3s ease;
+}
+
+.result {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    display: none;
+    transition: display .4s ease;
+}
+
+.result.success {
+    color: green;
+}
+
+.result.error {
+    color: red;
+}
+
+#next-button {
+    margin-top: 10px;
+    background-color: #e63946; /* Vermelho natalino */
+    color: #fff; /* Cor do texto */
+    font-size: 1.2rem; /* Tamanho do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Sem borda padrão */
+    border-radius: 10px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
+    transition: all 0.3s ease; /* Animação suave */
+}
+
+#next-button:hover {
+    background-color: #f77f00; /* Tom alaranjado ao passar o mouse */
+    transform: scale(1.1); /* Aumenta um pouco o botão */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+
+#next-button:active {
+    transform: scale(0.95); /* Botão "afunda" ao clicar */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Sombra menor */
+}
+
+.titulo-final {
+    font-size: 2rem; /* Tamanho do texto */
+    color: #2a9d8f; /* Verde natalino */
+    text-align: center; /* Centraliza o texto */
+    background-color: #fefae0; /* Fundo claro, como neve */
+    padding: 15px 20px; /* Espaçamento interno */
+    border: 2px solid #e63946; /* Borda vermelha natalina */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    margin: 20px auto; /* Espaçamento externo */
+    width: fit-content; /* Adapta o tamanho ao texto */
+    animation: fade-in 1s ease-out; /* Animação de aparição */
+}
