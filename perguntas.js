@@ -244,26 +244,19 @@ function verificarResposta() {
         if (correto) {
             respostasCorretas++;
             document.querySelector(`label[for="option${respostaSelecionada}"]`).style.backgroundColor = 'green';
-            console.log(indicePerguntaAtual)
 
             if (indicePerguntaAtual === 0){
                 acertou(`natalecotec/ligar/faixa/blue`)
-                console.log("azul")
             }
             if (indicePerguntaAtual === 1){
                 acertou(`natalecotec/ligar/faixa/red`)
-                console.log("vermelho")
             }
             if (indicePerguntaAtual === 2){
                 acertou(`natalecotec/ligar/faixa/green`)
-                console.log("verde")
             }
             if (indicePerguntaAtual === 3){
                 acertou(`natalecotec/ligar/faixa/yellow`)
-                console.log("amarelo")
             }
-
-            console.log(indicePerguntaAtual)
         } else {
             document.getElementById('result').textContent = 'Resposta Errada!';
             document.querySelector(`label[for="option${respostaSelecionada}"]`).style.backgroundColor = 'red';
