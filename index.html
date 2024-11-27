@@ -9,8 +9,16 @@
 <body>
 
 <div class="botao">
-    <button onclick="location.href='perguntas.html'">Iniciar Quiz</button>
+    <button onclick="start()">Iniciar Quiz</button>
 </div>
 
 </body>
+<script src="mqttws31.js"></script>
+<script src="index.js"></script>
+<script>
+    function start() {
+        window.location.href = 'perguntas.html'
+        acertou(`natalecotec/ligar/faixa/apagar`)
+    }
+</script>
 </html>

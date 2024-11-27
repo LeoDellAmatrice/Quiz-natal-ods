@@ -278,8 +278,18 @@ function irParaProximaPergunta() {
         if (respostasCorretas === 4) {
             acertou(`natalecotec/ligar/faixa/estrela`)
         }
+        setTimeout(inicio, 2000);
+
     }
 }
+
+function inicio() {
+    window.location.href = 'index.html'
+}
+
+setTimeout(() => {
+
+}, 2000)
 
 // Embaralha as perguntas e exibe a primeira
 embaralharPerguntas();
